@@ -1,0 +1,14 @@
+{
+  "development": {
+    "PORT": 5000,
+    "MONGODB_URI": "mongodb+srv://covid:test123@cluster0.yes5i.mongodb.net/test",
+    "JWT_SECRET": "ADSFEWIRUEPWTUWRT#999",
+    "JWT_EXP": "1d"
+  },
+  "production": {
+    "PORT": 80,
+    "MONGODB_URI": "mongodb+srv://covid:test123@cluster0.yes5i.mongodb.net/test",
+    "JWT_SECRET": "ADSFEWIRUEPWTUWRT#999",
+    "JWT_EXP": "1d"
+  }
+}
