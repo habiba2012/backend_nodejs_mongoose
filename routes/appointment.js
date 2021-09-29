@@ -7,7 +7,7 @@ const {
     updateAppointment,
     deleteAppointment
 
-} = require('../controllers/user_appointment.controller');
+} = require('../controllers/doctor_appointment.controller');
 
 
 

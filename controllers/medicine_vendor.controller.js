@@ -1,37 +1,38 @@
 const mongoose = require('mongoose');
 
-//Import enquiry models 
-const Enquiry = require('../models/user_enquiry.model')
+//Import Medicine models 
+const Medicine = require('../models/medicine_vendor.model')
 
 
 
-// Handle --->post-add enquiry 
-exports.createEnquiry = function (req, res) {
-    const enquiry = new Enquiry();
-    enquiry.user_enquiry_child = request.body.user_enquiry_child;
-    enquiry.created_at = req.body.created_at;
-    enquiry.tags = req.body.tags;
-    enquiry.status = req.body.status;
-    enquiry.file_url = req.body.file_url;
-    // save the contact and check for errors
-    enquiry.save(function (err) {
+// Handle --->post-add Medicine 
+exports.createMedicine = function (req, res) {
+    const medicine = new Medicine();
+    medicine.user_id = request.body.user_id;
+    medicine.user_order = request.body.user_order;
+    medicine.order_id = request.body.order_id;
+    medicine.created_at = req.body.created_at;
+     medicine.status = req.body.status;
+    medicine.file_url = req.body.file_url;
+    // save the Medicine and check for errors
+    medicine.save(function (err) {
         // if (err)
         //     res.json(err);
         res.json({
-            message: 'New enquiry created!',
-            data: enquiry
+            message: 'New Medicine created!',
+            data: medicine
         });
     });
 };
 
 // get review  --->get api
-exports.getEnquiry = function (req, res) {
-    Review.findById(req.params.enquiry_id, function (err, enquiry) {
+exports.getMedicine = function (req, res) {
+    Medicine.findById(req.params.enquiry_id, function (err, medicine) {
         if (err)
             res.send(err);
         res.json({
             message: 'enquiry loading..',
-            data: enquiry
+            data:  medicine
         });
     });
 };

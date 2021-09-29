@@ -3,7 +3,7 @@ const router = express.Router();
 
 
 const ctrlUser = require('../controllers/user.controller');
-const ctrlUserSignin = require('../controllers/userSignin.controller');
+const ctrlUserSignin = require('../controllers/userSignup.controller');
 
 const jwtHelper = require('../config/jwtHelper');
 

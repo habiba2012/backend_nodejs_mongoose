@@ -8,7 +8,6 @@ const User = mongoose.model('User');
 // @route     POST /user/enroll
 module.exports.enroll = (req, res, next) => {
     var user = new User();
-    
     user.name = req.body.name;
     user.email = req.body.email;
     user.password = req.body.password;

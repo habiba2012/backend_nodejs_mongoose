@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-var userSigninSchema = new mongoose.Schema({
+var userSignupSchema = new mongoose.Schema({
     name: {
         type: String,
         required: [true, 'Full name can\'t be empty'],
@@ -40,7 +40,7 @@ var userSigninSchema = new mongoose.Schema({
 
 
 // // Encrypt password using bcrypt
-userSigninSchema.pre('save', function (next) {
+userSignupSchema.pre('save', function (next) {
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(this.password, salt, (err, hash) => {
             this.password = hash;
@@ -52,11 +52,11 @@ userSigninSchema.pre('save', function (next) {
 
 
 // Methods
-userSigninSchema.methods.verifyPassword = function (password) {
+userSignupSchema.methods.verifyPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
 };
 
-userSigninSchema.methods.generateJwt = function () {
+userSignupSchema.methods.generateJwt = function () {
     return jwt.sign({ _id: this._id },
         process.env.JWT_SECRET,
         {
@@ -66,4 +66,4 @@ userSigninSchema.methods.generateJwt = function () {
 
 
 //  userSigninSchema.plugin(mexp)
-mongoose.model('UserSignIn', userSigninSchema, "signin");
+mongoose.model('UserSignUp', userSignupSchema, "signup");

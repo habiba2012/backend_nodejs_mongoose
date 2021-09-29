@@ -22,10 +22,8 @@ const AppointmentSchema = new mongoose.Schema({
 
         status: {
             type: String
-        },
-        remark: {
-            type: String,
         }
+     
     }
 
 

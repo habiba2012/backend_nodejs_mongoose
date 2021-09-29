@@ -1,25 +1,25 @@
 var express = require('express');
 var router = express.Router();
 const {
-    createEnquiry,
-    getEnquiry,
+    createMedicine,
+    getMedicine,
     updateEnquiry,
     deleteEnquiry
 
 
-} = require('../controllers/user_enquiry.controller');
+} = require('../controllers/medicine_vendor.controller');
 
 
 
 router
     .route('/')
-    .post(createEnquiry)
-    .get(getEnquiry)
+    .post(createMedicine)
+    .get(getMedicine)
 
 
 router
     .route('/:id')
-    .get(getEnquiry)
+    .get(getMedicine)
     .put(updateEnquiry)
     .delete(deleteEnquiry);
 

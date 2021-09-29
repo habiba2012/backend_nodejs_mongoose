@@ -2,6 +2,7 @@ require('./config/config');
 require('./models/db');
 require('./config/passportConfig');
 
+const jwtHelper = require('./config/jwtHelper');
 
 const express = require('express');
 // const bodyParser = require('body-parser');
@@ -20,27 +21,23 @@ app.use(passport.initialize());
 
 //Route files
 const enroll = require('./routes/user')
-const signin = require('./routes/signin')
+const signup = require('./routes/signup', jwtHelper.verifyJwtToken)
 const reviews = require('./routes/review')
 const appointments = require('./routes/appointment');
 const roles = require('./routes/role')
-const enquiry = require('./routes/enquiry')
+const medicine = require('./routes/medicine')
+const login = require('./routes/login')
 
 
 
 //Mount Routers
 app.use('/api/user/enroll', enroll)
-app.use('/api/user/signin', signin)
+app.use('/api/user/signup', signup)
 app.use('/api/reviews', reviews)
 app.use('/api/appointments', appointments)
 app.use('/api/roles', roles);
-app.use('/api/enquiry', enquiry)
-
-/* var client = new elasticsearch.Client({
-    host: 'localhost:9200',
-    log: 'trace',
-    apiVersion: '7.2', // use the same version of your Elasticsearch instance
-}); */
+app.use('/api/medicine', medicine);
+app.use('/api/user/login', login);
 
 // error handler
 app.use((err, req, res, next) => {

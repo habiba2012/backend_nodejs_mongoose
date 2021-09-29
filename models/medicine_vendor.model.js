@@ -1,28 +1,24 @@
 const mongoose = require('mongoose');
 // var mexp = require('elasticsearch');
 
-const EnquirySchema = new mongoose.Schema({
+const MedicineSchema = new mongoose.Schema({
 
     user_id: {
         type: String,
         required: [true, 'Id is required']
     },
-    user_enquiry_child: {
+    user_order: {
         type: Object,
-        enquiry_id: {
+        order_id: {
             type: String,
             required: [true, 'Id is required']
         },
-        enquiry: {
-            type: String,
-        },
+      
         created_at: {
             type: Date,
             default: Date.now()
         },
-        remark: {
-            type: String,
-        },
+     
         status: {
             type: String
         },
@@ -35,7 +31,7 @@ const EnquirySchema = new mongoose.Schema({
 
 
 // EnquirySchema.plugin(mexp);
-mongoose.model('Enquiry', EnquirySchema, 'enquiry')
+mongoose.model('Medicine', MedicineSchema, 'medicine')
 
 
 
