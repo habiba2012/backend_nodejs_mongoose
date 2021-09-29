@@ -1,10 +1,7 @@
 require('./config/config');
 require('./models/db');
 require('./config/passportConfig');
-/* var elasticsearch = require('elasticsearch');
-var client = new elasticsearch.Client({
-    host: 'localhost:9200', log: 'trace'
-}); */
+
 
 const express = require('express');
 // const bodyParser = require('body-parser');
@@ -20,7 +17,6 @@ app.use(cors());
 app.use(express.json());
 
 app.use(passport.initialize());
-// app.use('/user', rtsIndex);
 
 //Route files
 const enroll = require('./routes/user')

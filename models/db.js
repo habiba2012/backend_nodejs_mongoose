@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
     else { console.log('Error in MongoDB connection : ' + JSON.stringify(err, undefined, 2)); }
 });
  */
-mongoose.connect('mongodb+srv://habiba:habiba12309@cluster0.bmjhc.mongodb.net/findooztest?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://covid:test123@cluster0.yes5i.mongodb.net/test',
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -20,7 +20,7 @@ mongoose.connect('mongodb+srv://habiba:habiba12309@cluster0.bmjhc.mongodb.net/fi
 require('./user.model');
 require('./user_signin.model')
 require('./user_review.model')
-require('./user_appointment.model')
+require('./doctor_appointment.model')
 require('./user_role.model')
 require('./user_enquiry.model')
 
